@@ -1,4 +1,4 @@
-# HUNIDAYA v1.4 (PWA)
+# HUNIDAYA v1.5 (PWA)
 
 *Pahami kemampuanmu, rencanakan rumahmu.*
 
@@ -33,8 +33,13 @@ Setelah dibuka sekali dengan internet, aplikasi tetap bisa dipakai tanpa interne
 
 Versi 1.3.1 mengganti nama dari JEJAK CICIL menjadi HUNIDAYA. Versi 1.3.2 mengganti kunci penyimpanan hasil uji pengguna menjadi `hunidaya.uji.v1`; sesi lama dipindahkan otomatis saat aplikasi pertama kali dibuka, lalu kunci lama dihapus.
 
-- **Putar demo:** menjalankan contoh Bu Rina melewati 5 langkah dalam 12 adegan, sekitar 84 detik. Tombol Jeda, Kembali, Lanjut, dan Selesai tersedia; tombol Esc menghentikan demo. Alamat yang diakhiri `#demo` langsung memutar demo, berguna untuk merekam video.
-- **Bantuan istilah (v1.4):** tombol "Bantuan istilah" membuka kamus 35 istilah (FLPP, SBUM, KPP, DSR, plafon, SLIK, dan lainnya) dalam bahasa sehari-hari, bisa dicari dan dikelompokkan. Tanda tanya kecil di samping isian langsung membuka penjelasan istilah itu.
+- **Putar demo:** menjalankan contoh Bu Rina melewati 5 langkah dalam 15 adegan, sekitar 105 detik. Tombol Jeda, Kembali, Lanjut, dan Selesai tersedia; tombol Esc menghentikan demo. Alamat yang diakhiri `#demo` langsung memutar demo, berguna untuk merekam video.
+- **Bantuan istilah (v1.4):** tombol "Bantuan istilah" membuka kamus 38 istilah (FLPP, SBUM, KPP, DSR, plafon, SLIK, dan lainnya) dalam bahasa sehari-hari, bisa dicari dan dikelompokkan. Tanda tanya kecil di samping isian langsung membuka penjelasan istilah itu.
+- **Harga rumah yang aman (v1.5):** di Langkah 3, aplikasi mencari harga rumah tertinggi yang masih berstatus Aman dan Waspada dengan data pengguna. Bila angkanya jauh di bawah batas wilayah, aplikasi menjelaskan penyebabnya (tabungan atau cicilan).
+- **Rencana menuju Aman (v1.5):** kotak "bagaimana jika" untuk mencoba harga, tenor, uang muka, dan kemampuan menabung tanpa mengubah isian utama. Hasilnya: tambahan tabungan yang dibutuhkan dan perkiraan lama menabung, atau saran harga dan tenor bila cicilan yang terlalu besar. Usia lunas di atas 65 tahun diberi peringatan.
+- **Rencana persiapan 30 hari (v1.5):** di Langkah 5, daftar langkah berurutan (bukti transaksi, NPWP, NIB, cek SLIK, menabung, ke bank) disusun dari jawaban pengguna. Bisa diunduh sebagai file kalender `.ics` setelah pengguna setuju.
+- **Bacakan hasil (v1.5):** tombol "Bacakan" membacakan ringkasan dengan suara bahasa Indonesia di perangkat. Bila perangkat belum punya suara Indonesia, aplikasi memberi tahu cara memasangnya.
+- **Mode pendamping (v1.5):** untuk kader, koperasi, atau petugas. Menyimpan banyak profil anggota dengan kode (tanpa nama) di perangkat pendamping, setelah anggota setuju. Tersedia tabel ringkas, rekap `.csv`, ekspor `.json`, dan hapus semua.
 - **Uji pengguna:** 5 pertanyaan sebelum dan sesudah memakai aplikasi (skala 1 sampai 5), ditambah satu pertanyaan kemudahan dan dua isian singkat. Hasil disimpan di perangkat dengan kode peserta tanpa nama, lalu bisa diunduh sebagai `.csv` atau `.json`.
 - **Bagikan ringkasan:** teks ringkasan tanpa nama lewat menu bagikan ponsel atau salin, serta kode QR yang bisa dipindai pendamping. Keduanya baru aktif setelah pengguna mencentang persetujuan.
 
