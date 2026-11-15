@@ -291,13 +291,7 @@ body{background:var(--paper)}
 .logomark{border-radius:8px}
 .nav .numb{border-radius:4px}
 .stepcount{background:none;padding:0;color:var(--muted);font-weight:500}
-/* hero menjadi judul lembar */
-.hero{background:none;color:var(--text);border-radius:0;padding:8px 0 22px;margin-bottom:0;border-bottom:2px solid var(--ink)}
-.hero:before,.hero:after,.hero .eyebrow{display:none}
-.hero h1{color:var(--ink);max-width:22ch;font-size:clamp(28px,3.4vw,42px);letter-spacing:-.8px;line-height:1.12;margin:0 0 12px}
-.hero p{color:var(--body);max-width:62ch}
-.hero-footer{gap:6px 18px}
-.tag{background:none!important;border:0!important;padding:0!important;color:var(--muted)!important;border-radius:0}
+/* hero gelap dipertahankan seperti v1.5 */
 .status-strip{background:none;border:0;border-radius:0;border-bottom:1px solid var(--rule);padding:14px 0;margin:0 0 4px;box-shadow:none}
 /* angka ringkas sebagai satu baris buku */
 .kpi-grid{gap:0;margin:0 0 30px;border-bottom:1px solid var(--rule)}
@@ -400,7 +394,7 @@ tbody tr:hover{background:#F5FAFD}
 
   <section class="section" id="section-cashflow">
     <div class="sec-head"><div><h2>02. Catatan keuangan enam bulan</h2><p>Isi uang yang masuk, pengeluaran rumah tangga, dan uang yang ditabung setiap bulan.</p></div><span id="completenessBadge" class="pill na">Belum dinilai</span></div>
-    <div class="card"><div class="card-title"><div><h3>Catatan per bulan</h3><p>Jika suatu bulan tidak ada pemasukan atau pengeluaran, tulis 0. Jangan biarkan kosong jika memang ingin mencatat angka nol.</p></div><button type="button" class="btn btn-sm" id="btnFillSample">Gunakan angka contoh</button></div><div class="tablewrap"><table><thead><tr><th>Bulan</th><th>Pemasukan setelah biaya usaha</th><th>Pengeluaran</th><th>Uang yang ditabung</th><th>Bukti transaksi</th></tr></thead><tbody id="cashRows"></tbody></table></div><div class="note" style="margin-top:15px">Memilih “Saya punya bukti” berarti Anda menyatakan memiliki nota atau catatan transaksi. Aplikasi belum menerima atau memeriksa dokumen tersebut.</div></div>
+    <div class="card"><div class="card-title"><div><h3>Catatan per bulan</h3><p>Jika suatu bulan tidak ada pemasukan atau pengeluaran, tulis 0. Jangan biarkan kosong jika memang ingin mencatat angka nol. Pemasukan bersih adalah uang yang benar-benar Anda terima setelah dikurangi modal usaha atau potongan kerja. Jika tidak ada potongan, tulis uang yang diterima.</p></div><button type="button" class="btn btn-sm" id="btnFillSample">Gunakan angka contoh</button></div><div class="tablewrap"><table><thead><tr><th>Bulan</th><th>Pemasukan bersih <button type="button" class="qhelp" data-glossary="bersih" aria-label="Penjelasan: Pemasukan bersih">?</button></th><th>Pengeluaran</th><th>Uang yang ditabung</th><th>Bukti transaksi</th></tr></thead><tbody id="cashRows"></tbody></table></div><div class="note" style="margin-top:15px">Memilih “Saya punya bukti” berarti Anda menyatakan memiliki nota atau catatan transaksi. Aplikasi belum menerima atau memeriksa dokumen tersebut.</div></div>
     <div class="two"><div class="card"><div class="card-title"><div><h3>Grafik uang masuk dan keluar</h3><p>Lihat perbandingan pemasukan dan pengeluaran setiap bulan.</p></div></div><div class="legend"><span>Pemasukan</span><span>Pengeluaran</span></div><div class="chart" id="cashChart"></div></div><div class="card"><div class="card-title"><div><h3>Ringkasan enam bulan</h3><p>Angka dihitung dari data yang Anda isi atau contoh yang dipilih.</p></div></div><div id="cashSummary"></div></div></div>
     <div class="actions-bottom"><button type="button" class="btn prev" data-to="profile">Kembali</button><button type="button" class="btn btn-primary next" data-to="simulator">Selanjutnya: Cek kemampuan bayar</button></div>
   </section>
@@ -3048,6 +3042,7 @@ const G=[
 ['cicilan','bunga2','Bunga setelah masa subsidi','KPP tahun ke-6 dan seterusnya','Setelah lima tahun, subsidi bunga KPP berhenti dan bunga ditentukan bank. Besarnya belum diketahui pasti.','Aplikasi memperkirakannya dari bunga 6% ditambah besar subsidi: 16% untuk pinjaman sampai Rp100 juta, 11,5% untuk di atasnya. Ini perkiraan, bukan ketentuan resmi.'],
 ['cicilan','akad','Akad kredit','','Penandatanganan perjanjian pinjaman dengan bank. Setelah akad, cicilan mulai berjalan.',''],
 ['cicilan','biayabeli','Biaya pembelian lain','','Biaya di luar uang muka saat membeli rumah, misalnya biaya akad, notaris, atau asuransi. Besarnya tanyakan ke bank atau pengembang.','Biaya ini dikurangkan dari tabungan sebelum menghitung cadangan.'],
+['keuangan','bersih','Pemasukan bersih','Uang yang benar-benar Anda terima','Uang yang masuk ke tangan Anda dan bisa dipakai untuk keluarga. Pedagang: hasil jualan dikurangi modal belanja barang. Pekerja lepas atau remote: bayaran dikurangi potongan platform, biaya transfer atau kurs, dan alat kerja khusus. Karyawan atau pekerja harian: upah yang diterima, tidak ada yang dikurangi. Jika tidak ada potongan sama sekali, tulis saja uang yang diterima.','Biaya yang dipakai bersama rumah, seperti internet dan listrik, cukup dicatat satu kali: dikurangkan di pemasukan atau dimasukkan ke pengeluaran, jangan keduanya. Jika tercatat dua kali, kemampuan bayar terlihat lebih buruk dari kenyataan.'],
 ['keuangan','dsr','Batas cicilan dibanding pemasukan','DSR (debt service ratio)','Perbandingan cicilan dengan pemasukan rata-rata per bulan. Misalnya pemasukan Rp3 juta dan cicilan Rp900 ribu berarti 30%.','Bawaan aplikasi 30%. Anda bisa mengubahnya.'],
 ['keuangan','paceklik','Bulan pemasukan terendah','Bulan sepi atau paceklik','Kondisi paling berat dari catatan enam bulan Anda: pemasukan terendah bertemu pengeluaran tertinggi.','Inilah yang membedakan aplikasi ini dari kalkulator KPR biasa yang hanya memakai rata-rata.'],
 ['keuangan','guncangan','Jika pemasukan turun','Guncangan pemasukan','Uji jika pemasukan rata-rata turun sekian persen, misalnya karena sakit, cuaca, atau pasar sepi.','Bawaan aplikasi 20%.'],
