@@ -1,4 +1,4 @@
-# HUNIDAYA v1.5 (PWA)
+# HUNIDAYA v1.6 (PWA)
 
 *Pahami kemampuanmu, rencanakan rumahmu.*
 
@@ -35,6 +35,7 @@ Versi 1.3.1 mengganti nama dari JEJAK CICIL menjadi HUNIDAYA. Versi 1.3.2 mengga
 
 - **Putar demo:** menjalankan contoh Bu Rina melewati 5 langkah dalam 15 adegan, sekitar 105 detik. Tombol Jeda, Kembali, Lanjut, dan Selesai tersedia; tombol Esc menghentikan demo. Alamat yang diakhiri `#demo` langsung memutar demo, berguna untuk merekam video.
 - **Bantuan istilah (v1.4):** tombol "Bantuan istilah" membuka kamus 38 istilah (FLPP, SBUM, KPP, DSR, plafon, SLIK, dan lainnya) dalam bahasa sehari-hari, bisa dicari dan dikelompokkan. Tanda tanya kecil di samping isian langsung membuka penjelasan istilah itu.
+- **Tampilan buku kas (v1.6):** tampilan diubah menjadi satu lembar seperti buku kas, dengan garis baris biru dan garis margin merah. Kotak-kotak dikurangi; kotak hanya dipakai untuk status dan peringatan. Fungsi dan hitungan tidak berubah.
 - **Harga rumah yang aman (v1.5):** di Langkah 3, aplikasi mencari harga rumah tertinggi yang masih berstatus Aman dan Waspada dengan data pengguna. Bila angkanya jauh di bawah batas wilayah, aplikasi menjelaskan penyebabnya (tabungan atau cicilan).
 - **Rencana menuju Aman (v1.5):** kotak "bagaimana jika" untuk mencoba harga, tenor, uang muka, dan kemampuan menabung tanpa mengubah isian utama. Hasilnya: tambahan tabungan yang dibutuhkan dan perkiraan lama menabung, atau saran harga dan tenor bila cicilan yang terlalu besar. Usia lunas di atas 65 tahun diberi peringatan.
 - **Rencana persiapan 30 hari (v1.5):** di Langkah 5, daftar langkah berurutan (bukti transaksi, NPWP, NIB, cek SLIK, menabung, ke bank) disusun dari jawaban pengguna. Bisa diunduh sebagai file kalender `.ics` setelah pengguna setuju.
