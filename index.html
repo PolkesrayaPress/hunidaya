@@ -221,6 +221,40 @@ body.demo-on .content{padding-bottom:240px}
 @media print{.demobar,.qrbox{display:none!important}}
 .eyebrow{align-items:flex-start}.eyebrow .dot{flex:none;margin-top:8px}
 
+:root{color-scheme:light}
+
+/* ---------- Bantuan istilah ---------- */
+.qhelp{position:relative;display:inline-grid;place-items:center;width:22px;height:22px;margin-left:6px;border-radius:50%;border:1.5px solid var(--azure-d);background:#fff;color:var(--azure-d);font-size:14px;font-weight:700;line-height:1;cursor:pointer;vertical-align:1px;padding:0}
+.qhelp::after{content:"";position:absolute;inset:-11px}
+.qhelp:hover{background:var(--azure-l)}
+.glossary{background:#FFFFFF;color-scheme:light;width:min(760px,calc(100% - 24px));max-height:min(86vh,900px);border:0;border-radius:18px;padding:0;box-shadow:0 30px 80px rgba(8,15,27,.4);color:var(--text)}
+.glossary::backdrop{background:rgba(8,15,27,.55)}
+.glossary[open]{display:flex;flex-direction:column;overflow:hidden}
+.gl-head{flex:none;background:var(--ink);color:#fff;padding:18px 20px 16px;display:grid;gap:12px;z-index:1}
+.gl-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.gl-top h2{margin:0;font-size:20px;font-weight:700}
+.gl-top p{margin:2px 0 0;font-size:14px;color:#B7C5D6}
+.gl-close{min-height:44px;min-width:44px;border-radius:10px;border:1px solid #2A3B55;background:transparent;color:#fff;font-size:15px;font-weight:600;padding:0 14px}
+.gl-search{width:100%;height:48px;border-radius:10px;border:0;padding:0 14px;font-size:16px;color:var(--text)}
+.gl-search:focus{outline:3px solid var(--azure)}
+.gl-chips{display:flex;gap:8px;flex-wrap:wrap}
+.gl-chips button{min-height:36px;border-radius:99px;border:1px solid #2A3B55;background:transparent;color:#DCE6F2;font-size:14px;font-weight:600;padding:0 12px}
+.gl-chips button[aria-pressed="true"]{background:var(--azure);border-color:var(--azure);color:var(--ink)}
+.gl-body{background:#FFFFFF;color:var(--text);flex:1;min-height:0;padding:8px 20px 20px;overflow:auto}
+.gl-item{padding:16px 0;border-bottom:1px solid var(--line2);scroll-margin-top:8px}
+.gl-item:last-child{border-bottom:0}
+.gl-item h3{margin:0 0 6px;font-size:17px;font-weight:700}
+.gl-item h3 small{font-weight:500;color:var(--muted);font-size:14px}
+.gl-item p{margin:4px 0 0;font-size:15px;line-height:1.6;color:var(--body)}
+.gl-item .gl-app{margin-top:8px;padding:10px 12px;border-radius:10px;background:var(--azure-l);color:#0F4A69;font-size:14px}
+.gl-item.flash{animation:glflash 1.6s ease-out}
+@keyframes glflash{0%,40%{background:#FFF3D6}100%{background:transparent}}
+.gl-empty{padding:24px 0;color:var(--muted);font-size:15px}
+@media(max-width:820px){.glossary{width:100%;max-width:100%;max-height:100%;height:100%;border-radius:0;margin:0}}
+@media print{.qhelp,.glossary{display:none!important}}
+.linkhelp{border:0;background:none;padding:0;margin:0;color:var(--azure-d);font:inherit;font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.linkhelp:hover{color:var(--ink)}
+
 </style>
 </head>
 <body>
@@ -238,10 +272,10 @@ body.demo-on .content{padding-bottom:240px}
   </div>
   <div class="side-spacer"></div>
   <div class="sidenote"><strong>Data Anda tetap pribadi</strong><p>Semua perhitungan dilakukan langsung di perangkat Anda. Data tidak dikirim ke bank atau server. Hanya Anda yang dapat memilih untuk mengunduh hasilnya.</p></div>
-  <div class="sidestamp">Prototipe independen v1.3.2 · 2026</div>
+  <div class="sidestamp">Prototipe independen v1.4 · 2026</div>
 </aside>
 <main class="content">
-  <div class="topline"><div class="breadcrumb">HUNIDAYA <span> / </span><strong id="breadcrumb">Profil dan rumah</strong><span class="stepcount" id="stepCount">Langkah 1 dari 5</span><span class="testbadge" id="testBadge" aria-live="polite"></span></div><div class="top-actions"><select id="preset" class="btn" aria-label="Pilih contoh simulasi"><option value="rina">Contoh: Bu Rina</option><option value="stabil">Contoh: Pemasukan stabil</option><option value="musiman">Contoh: Pemasukan tidak tetap</option></select><button type="button" class="btn btn-primary" id="btnDemo"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>Putar demo</button><button type="button" class="btn" id="btnPreset">Tampilkan contoh</button><button type="button" class="btn" id="btnClear">Mulai isi data sendiri</button><button type="button" class="btn" id="btnTest">Uji pengguna</button><button type="button" class="btn btn-dark" id="btnPrint">Cetak hasil</button></div></div>
+  <div class="topline"><div class="breadcrumb">HUNIDAYA <span> / </span><strong id="breadcrumb">Profil dan rumah</strong><span class="stepcount" id="stepCount">Langkah 1 dari 5</span><span class="testbadge" id="testBadge" aria-live="polite"></span></div><div class="top-actions"><select id="preset" class="btn" aria-label="Pilih contoh simulasi"><option value="rina">Contoh: Bu Rina</option><option value="stabil">Contoh: Pemasukan stabil</option><option value="musiman">Contoh: Pemasukan tidak tetap</option></select><button type="button" class="btn btn-primary" id="btnDemo"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>Putar demo</button><button type="button" class="btn" id="btnPreset">Tampilkan contoh</button><button type="button" class="btn" id="btnClear">Mulai isi data sendiri</button><button type="button" class="btn" id="btnHelp" aria-haspopup="dialog">Bantuan istilah</button><button type="button" class="btn" id="btnTest">Uji pengguna</button><button type="button" class="btn btn-dark" id="btnPrint">Cetak hasil</button></div></div>
   <section class="hero"><div class="eyebrow"><span class="dot"></span> HUNIDAYA · Pahami kemampuanmu, rencanakan rumahmu</div><h1>Cek apakah cicilan rumah sesuai dengan kondisi keuangan Anda.</h1><p>Catat pemasukan dan pengeluaran selama enam bulan. Bandingkan contoh cicilan KPR rumah subsidi (FLPP) dan pembiayaan rumah untuk mendukung usaha (KPP). Lihat apa yang masih perlu disiapkan, terutama jika pemasukan Anda tidak tetap.</p><div class="hero-footer"><span class="tag">✓ Bisa digunakan tanpa internet</span><span class="tag">✓ Perhitungan FLPP dan KPP terpisah</span><span class="tag" id="dataOriginTag">Data contoh, bukan hasil survei</span></div></section>
   <div class="status-strip"><span>ⓘ</span><div><strong>Aplikasi ini bukan layanan resmi BTN.</strong> Hasilnya hanya perkiraan berdasarkan angka yang Anda isi. Bank tetap memeriksa dokumen, menentukan cicilan yang berlaku, dan memutuskan apakah pengajuan disetujui.</div></div>
   <div class="invalid" id="globalErrors" role="alert"></div>
@@ -261,7 +295,7 @@ body.demo-on .content{padding-bottom:240px}
       </div></div>
       <div class="card"><div class="card-title"><div><h3>Periksa syarat dan dokumen awal</h3><p>Centang sesuai keadaan sebenarnya. Jawaban ini belum diperiksa oleh bank.</p></div><span class="mini-icon">☑</span></div>
         <div class="checks"><label class="check"><input type="checkbox" id="firstHome" checked><span>Saya dan pasangan (jika ada) belum memiliki rumah.</span></label><label class="check"><input type="checkbox" id="noSubsidy" checked><span>Saya belum pernah mendapat bantuan pemerintah untuk memiliki rumah.</span></label></div>
-        <hr class="divider"><strong style="font-size:14px">Khusus KPP: pinjaman untuk rumah yang mendukung usaha</strong><div class="checks" style="margin-top:12px">
+        <hr class="divider"><strong style="font-size:14px">Khusus KPP: pinjaman untuk rumah yang mendukung usaha</strong><button type="button" class="qhelp" data-glossary="kpp" aria-label="Penjelasan: KPP">?</button><div class="checks" style="margin-top:12px">
           <label class="check"><input type="checkbox" id="hasNPWP"><span>Saya memiliki NPWP (nomor pajak).</span></label><label class="check"><input type="checkbox" id="hasNIB"><span>Saya memiliki NIB (nomor izin berusaha).</span></label><label class="check"><input type="checkbox" id="businessSix" checked><span>Usaha saya sudah berjalan sedikitnya enam bulan.</span></label><label class="check"><input type="checkbox" id="houseBusiness"><span>Rumah ini akan digunakan untuk mendukung kegiatan usaha.</span></label><label class="check"><input type="checkbox" id="noGovCredit" checked><span>Saya tidak sedang menerima KUR (Kredit Usaha Rakyat) atau pinjaman program pemerintah lain.</span></label>
         </div><hr class="divider"><strong style="font-size:14px">Dokumen yang sudah Anda punya</strong><div class="checks" style="margin-top:12px" id="documentChecklist"></div>
       </div>
@@ -276,7 +310,7 @@ body.demo-on .content{padding-bottom:240px}
   </section>
 
   <section class="section" id="section-simulator">
-    <div class="sec-head"><div><h2>03. Cek kemampuan membayar cicilan</h2><p>Bandingkan sisa uang Anda saat pemasukan biasa, saat pemasukan paling rendah, dan ketika pemasukan turun.</p></div><span class="pill na">Angka simulasi bisa diubah</span></div>
+    <div class="sec-head"><div><h2>03. Cek kemampuan membayar cicilan</h2><p>Bandingkan sisa uang Anda saat pemasukan biasa, saat pemasukan paling rendah, dan ketika pemasukan turun. <button type="button" class="linkhelp" data-glossary="aman">Apa arti Aman, Waspada, dan Berisiko?</button></p></div><span class="pill na">Angka simulasi bisa diubah</span></div>
     <div class="two"><div class="card"><div class="card-title"><div><h3>Atur contoh cicilan</h3><p>Setiap program dihitung sendiri agar hasilnya tidak tertukar.</p></div></div><div class="field-grid">
       <div class="field"><label for="flppTerm">Lama cicilan FLPP (tahun)</label><select id="flppTerm"><option>10</option><option>15</option><option selected>20</option><option>30</option><option>40</option></select><div class="hint">Contoh menggunakan bunga 5% per tahun. Lama cicilan yang tersedia perlu dipastikan ke bank.</div></div>
       <div class="field"><label for="flppDp">Uang muka FLPP (%)</label><input id="flppDp" type="number" min="0" max="90" step=".5" value="1"><div class="hint">Contoh uang muka dimulai dari 1% harga rumah.</div></div>
@@ -296,13 +330,13 @@ body.demo-on .content{padding-bottom:240px}
   </section>
 
   <section class="section" id="section-programs">
-    <div class="sec-head"><div><h2>04. Cek pilihan pembiayaan</h2><p>Hasil ini menunjukkan syarat awal menurut jawaban Anda. Bank tetap memeriksa riwayat kredit (SLIK) dan menentukan keputusan.</p></div><span class="pill na">Keputusan ada pada bank</span></div><div class="two" id="programCards"></div>
+    <div class="sec-head"><div><h2>04. Cek pilihan pembiayaan</h2><p>Hasil ini menunjukkan syarat awal menurut jawaban Anda. Bank tetap memeriksa riwayat kredit (SLIK) dan menentukan keputusan. <button type="button" class="linkhelp" data-glossary="syaratawal">Apa bedanya syarat awal dan kemampuan bayar?</button></p></div><span class="pill na">Keputusan ada pada bank</span></div><div class="two" id="programCards"></div>
     <div class="note warn">FLPP adalah pembiayaan untuk rumah subsidi, sedangkan KPP BTN ditujukan untuk rumah yang mendukung usaha. Uang muka, lama cicilan, jaminan, dan bunga setelah masa subsidi bisa berbeda. Pastikan ketentuannya langsung kepada bank.</div>
     <div class="actions-bottom"><button type="button" class="btn prev" data-to="simulator">← Kembali</button><button type="button" class="btn btn-primary next" data-to="report">Selanjutnya: Lihat ringkasan →</button></div>
   </section>
 
   <section class="section" id="section-report">
-    <div class="sec-head no-print"><div><h2>05. Ringkasan hasil Anda</h2><p>Lihat hasil perhitungan dan hal yang perlu disiapkan. Anda bisa menyimpan atau mencetaknya.</p></div></div>
+    <div class="sec-head no-print"><div><h2>05. Ringkasan hasil Anda</h2><p>Lihat hasil perhitungan dan hal yang perlu disiapkan. Anda bisa menyimpan atau mencetaknya. <button type="button" class="linkhelp" data-glossary="skordok">Bagaimana skor dokumen dihitung?</button></p></div></div>
     <div class="card"><div class="print-only" style="font-weight:850;font-size:14px;color:#080F1B">HUNIDAYA | HASIL SIMULASI</div><div class="reporthead"><div><h3 id="reportName">Bu Rina (simulasi)</h3><p id="reportDescription">Pekerja berpenghasilan tidak tetap</p></div><span class="pill na" id="reportOrigin">DATA SIMULASI</span></div><div class="three-cards" id="reportOutcomes"></div><h3 style="font-size:15px;margin:22px 0 10px">Apa yang perlu dilakukan berikutnya?</h3><ol id="reportFixes" class="fixes"></ol><label class="check consent"><input type="checkbox" id="consent"><span>Saya setuju ringkasan ini diunduh, dicetak, atau dibagikan hanya atas keputusan saya sendiri (prinsip UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi).</span></label><div class="note" id="reportDisclaimer">Hasil ini hanya untuk membantu Anda memahami kondisi keuangan. Bukan penilaian kelayakan atau persetujuan dari bank.</div><div class="actions-bottom no-print"><button type="button" class="btn" id="btnDownloadText">Unduh ringkasan (.txt)</button><button type="button" class="btn" id="btnExportJSON">Simpan data (.json)</button><button type="button" class="btn" id="btnShare">Bagikan ringkasan</button><button type="button" class="btn" id="btnQR">Tampilkan kode QR</button><button type="button" class="btn btn-primary" id="btnReportPrint">Cetak atau simpan PDF</button></div><div class="qrbox no-print" id="qrBox"></div></div>
     <div class="note warn no-print">File yang diunduh bisa berisi informasi keuangan pribadi. Periksa isinya sebelum dibagikan. Jangan memakai data orang lain tanpa izin.</div>
     <div class="actions-bottom no-print"><button type="button" class="btn prev" data-to="programs">← Kembali</button><button type="button" class="btn next" data-to="method">Penjelasan hasil →</button></div>
@@ -319,9 +353,10 @@ body.demo-on .content{padding-bottom:240px}
     <div class="card"><div class="card-title"><div><h3>Arti singkatan yang digunakan</h3><p>Anda tidak perlu hafal semuanya untuk menggunakan aplikasi.</p></div></div><div class="two"><div><p style="font-size:14px"><strong>FLPP</strong>: bantuan pembiayaan untuk membeli rumah subsidi.</p><p style="font-size:14px"><strong>KPP</strong>: Kredit Program Perumahan, termasuk untuk rumah yang mendukung usaha.</p><p style="font-size:14px"><strong>MBR</strong>: masyarakat berpenghasilan rendah.</p><p style="font-size:14px"><strong>SBUM</strong>: bantuan pemerintah untuk uang muka, jika memenuhi syarat.</p></div><div><p style="font-size:14px"><strong>NPWP</strong>: nomor pokok wajib pajak.</p><p style="font-size:14px"><strong>NIB</strong>: nomor induk berusaha.</p><p style="font-size:14px"><strong>KUR</strong>: Kredit Usaha Rakyat.</p><p style="font-size:14px"><strong>SLIK</strong>: sistem informasi riwayat kredit yang digunakan dalam proses penilaian bank.</p></div></div></div><div class="card"><div class="card-title"><div><h3>Sumber aturan dan informasi</h3><p>Periksa aturan yang terbaru sebelum memakai angka ini untuk pengajuan pembiayaan.</p></div></div><ol class="sources"><li><a href="https://www.tapera.go.id/kpr-flpp/" target="_blank" rel="noopener noreferrer">BP Tapera: KPR FLPP, syarat dan fitur program</a></li><li><a href="https://www.btn.co.id/id/business/produk-komersial/kredit-usaha-mikro-kecil-menengah/kredit-program-perumahan-btn-sisi-permintaan" target="_blank" rel="noopener noreferrer">BTN: KPP sisi permintaan untuk UMKM</a></li><li><a href="https://peraturan.go.id/files/permenko-perekonomian-no-13-tahun-2025.pdf" target="_blank" rel="noopener noreferrer">Permenko Perekonomian 13/2025, pedoman KPP</a></li><li><a href="https://peraturan.go.id/files/Permenkopolkam-no-13-tahun-2025.pdf" target="_blank" rel="noopener noreferrer">Permen PKP 13/2025, kriteria penerima KPP</a></li><li><a href="https://www.metrotvnews.com/read/b3JCpqGM-aturan-subsidi-bunga-kredit-perumahan-terbit-btn-percepat-penyaluran-pembiayaan" target="_blank" rel="noopener noreferrer">Metro TV: subsidi bunga KPP sisi permintaan 5,5% untuk plafon Rp100 juta sampai Rp500 juta, berlaku 5 tahun</a></li><li><a href="https://www.emitennews.com/news/regulasi-terbit-bbtn-percepat-penyaluran-pembiayaan" target="_blank" rel="noopener noreferrer">EmitenNews: subsidi bunga KPP sisi permintaan 10% untuk plafon Rp10 juta sampai Rp100 juta</a></li><li><a href="https://www.tapera.go.id/wp-content/uploads/2025/09/mitra-brosur.pdf" target="_blank" rel="noopener noreferrer">BP Tapera: ilustrasi zona harga rumah subsidi</a></li></ol></div>
     <div class="actions-bottom"><button type="button" class="btn prev" data-to="report">← Kembali</button><button type="button" class="btn btn-primary" data-to="profile">Kembali ke data diri</button></div>
   </section>
-  <div class="ftr">HUNIDAYA v1.3.2 · Aplikasi contoh yang dikembangkan secara mandiri · Bukan layanan resmi bank atau BP Tapera · Data dihitung di perangkat Anda</div>
+  <div class="ftr">HUNIDAYA v1.4 · Aplikasi contoh yang dikembangkan secara mandiri · Bukan layanan resmi bank atau BP Tapera · Data dihitung di perangkat Anda</div>
 </main></div>
 <div class="toast" id="toast" aria-live="polite"></div>
+<dialog class="glossary" id="glossary" aria-labelledby="glTitle"><div class="gl-head"><div class="gl-top"><div><h2 id="glTitle">Bantuan istilah</h2><p>Penjelasan singkat untuk istilah yang dipakai di aplikasi ini.</p></div><button type="button" class="gl-close" id="glClose">Tutup</button></div><input class="gl-search nc" id="glSearch" type="search" placeholder="Cari istilah, misalnya uang muka" aria-label="Cari istilah"><div class="gl-chips" id="glChips" role="group" aria-label="Kelompok istilah"></div></div><div class="gl-body" id="glBody" aria-live="polite"></div></dialog>
 <div class="demobar" id="demoBar" role="region" aria-label="Demo otomatis" hidden><div class="demoprog"><div id="demoProg"></div></div><div class="demorow"><span class="demostep" id="demoStep">1 / 11</span><p class="demotext" id="demoText" aria-live="polite"></p><div class="democtl"><button type="button" class="btn btn-sm" id="demoPrev">Kembali</button><button type="button" class="btn btn-sm" id="demoPause">Jeda</button><button type="button" class="btn btn-sm" id="demoNext">Lanjut</button><button type="button" class="btn btn-sm btn-dark" id="demoStop">Selesai</button></div></div></div>
 <script>
 "use strict";
@@ -469,7 +504,7 @@ function reportText(d,m){return ['HUNIDAYA | RINGKASAN HASIL (SIMULASI)','Jenis 
 let dlApi=null;if(window.claude&&typeof window.claude.use==='function')window.claude.use('downloads').then(x=>{dlApi=x}).catch(()=>{});
 async function download(name,content,mime){if(dlApi){try{await dlApi.save({filename:name,data:content});}catch(e){notify('Unduhan dibatalkan atau tidak tersedia.');}return;}const blob=new Blob([content],{type:mime});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),300);}
 function notify(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3500);}
-function bind(){document.querySelectorAll('#mainNav button').forEach(b=>b.onclick=()=>navigate(b.dataset.step));document.querySelectorAll('[data-to]').forEach(b=>b.onclick=()=>navigate(b.dataset.to));$('btnPreset').onclick=()=>applyPreset($('preset').value);$('btnFillSample').onclick=()=>applyPreset($('preset').value);$('btnClear').onclick=blankForm;$('btnPrint').onclick=()=>{navigate('report');if($('consent').checked)window.print();else notify('Centang persetujuan di bagian ringkasan sebelum mencetak.')};$('btnReportPrint').onclick=()=>{if($('consent').checked)window.print()};$('btnDownloadText').onclick=()=>{if(!$('consent').checked)return;const {d,m}=lastModel;download('Rapor_HUNIDAYA.txt',reportText(d,m),'text/plain;charset=utf-8')};$('btnExportJSON').onclick=()=>{if(!$('consent').checked)return;const {d}=lastModel;download('Data_HUNIDAYA.json',JSON.stringify({application:'HUNIDAYA',version:'1.3.2',dataOrigin:sourceKind,exportedAt:new Date().toISOString(),data:d},null,2),'application/json;charset=utf-8')};
+function bind(){document.querySelectorAll('#mainNav button').forEach(b=>b.onclick=()=>navigate(b.dataset.step));document.querySelectorAll('[data-to]').forEach(b=>b.onclick=()=>navigate(b.dataset.to));$('btnPreset').onclick=()=>applyPreset($('preset').value);$('btnFillSample').onclick=()=>applyPreset($('preset').value);$('btnClear').onclick=blankForm;$('btnPrint').onclick=()=>{navigate('report');if($('consent').checked)window.print();else notify('Centang persetujuan di bagian ringkasan sebelum mencetak.')};$('btnReportPrint').onclick=()=>{if($('consent').checked)window.print()};$('btnDownloadText').onclick=()=>{if(!$('consent').checked)return;const {d,m}=lastModel;download('Rapor_HUNIDAYA.txt',reportText(d,m),'text/plain;charset=utf-8')};$('btnExportJSON').onclick=()=>{if(!$('consent').checked)return;const {d}=lastModel;download('Data_HUNIDAYA.json',JSON.stringify({application:'HUNIDAYA',version:'1.4',dataOrigin:sourceKind,exportedAt:new Date().toISOString(),data:d},null,2),'application/json;charset=utf-8')};
  document.querySelectorAll('input:not(.nc),select:not(.nc)').forEach(el=>{if(el.id!=='preset')el.addEventListener('input',e=>{if(e.isTrusted&&sourceKind==='simulasi')sourceKind='campuran';render()});});
  document.querySelectorAll('input:not(.nc),select:not(.nc)').forEach(el=>{if(el.id!=='preset')el.addEventListener('change',()=>render())});
 }
@@ -2786,6 +2821,7 @@ const fails=k=>{const m=D().m;const list=k==='flpp'?m.declaredFLPP:m.declaredKPP
 const SCRIPT=[
  {step:'profile',sel:'.hero',text:()=>'Ini HUNIDAYA. Demo memakai profil contoh Bu Rina, pedagang sayur keliling di Kalimantan yang pemasukannya naik turun. Semua angka adalah data simulasi.'},
  {step:'profile',sel:'#overviewKpis',text:()=>'Empat angka ringkas ini berubah setiap kali data diisi: pemasukan rata-rata '+money(D().m.history.avgIncome)+', bulan yang terisi, skor dokumen, dan kemampuan bayar.'},
+ {step:'profile',sel:'#btnHelp',text:()=>'Istilah sulit seperti DSR, SBUM, atau plafon dijelaskan dengan bahasa sehari-hari lewat tombol Bantuan istilah dan tanda tanya kecil di samping isian.'},
  {step:'profile',sel:'#section-profile .card',text:()=>'Langkah 1: lokasi, harga rumah, usia, dan syarat awal. Batas harga rumah dan batas pemasukan menyesuaikan wilayah yang dipilih.'},
  {step:'cashflow',sel:'#section-cashflow .tablewrap',text:()=>'Langkah 2: catatan enam bulan. Selain angka, pengguna mencatat jenis bukti tiap bulan. Bukti yang baru berupa pengakuan dihitung lebih rendah.'},
  {step:'cashflow',sel:'#cashChart',text:()=>'Grafik membandingkan pemasukan dan pengeluaran. Bulan sepi langsung terlihat, sesuatu yang hilang bila hanya memakai angka rata-rata.'},
@@ -2861,7 +2897,7 @@ function wire(){const g=id=>document.getElementById(id);
  if(g('tClear'))g('tClear').onclick=()=>{const b=g('tClear');if(b.dataset.arm){mem.records=[];save();renderTest();notify('Semua hasil uji dihapus.');}else{b.dataset.arm='1';b.textContent='Klik lagi untuk menghapus';setTimeout(()=>{if(b.isConnected){delete b.dataset.arm;b.textContent='Hapus semua hasil';}},4000);}};
  const csv=()=>{const esc=s=>'"'+String(s).replace(/"/g,'""')+'"';const head=['kode','tanggal',...QS.map((_,i)=>'sebelum_q'+(i+1)),...QS.map((_,i)=>'sesudah_q'+(i+1)),'mudah_dipahami','membantu','membingungkan','data_yang_dipakai'];return [head.join(','),...mem.records.map(r=>[r.kode,r.tanggal,...r.pre,...r.post,r.easy,esc(r.membantu),esc(r.membingungkan),r.dataYangDipakai].join(','))].join('\n');};
  if(g('tCSV'))g('tCSV').onclick=()=>download('Uji_HUNIDAYA.csv',csv(),'text/csv;charset=utf-8');
- if(g('tJSON'))g('tJSON').onclick=()=>download('Uji_HUNIDAYA.json',JSON.stringify({aplikasi:'HUNIDAYA',versi:'1.3.2',pertanyaan:QS,skala:SCALE,diekspor:new Date().toISOString(),sesi:mem.records},null,2),'application/json;charset=utf-8');}
+ if(g('tJSON'))g('tJSON').onclick=()=>download('Uji_HUNIDAYA.json',JSON.stringify({aplikasi:'HUNIDAYA',versi:'1.4',pertanyaan:QS,skala:SCALE,diekspor:new Date().toISOString(),sesi:mem.records},null,2),'application/json;charset=utf-8');}
 $('btnTest').onclick=()=>navigate('test');
 const _nav=navigate;window.navigate=navigate=function(step){_nav(step);if(step==='test')renderTest();};
 document.querySelectorAll('#mainNav button,[data-to]').forEach(b=>{const s=b.dataset.step||b.dataset.to;b.onclick=()=>navigate(s);});
@@ -2882,6 +2918,72 @@ $('consent').addEventListener('change',()=>{if(!$('consent').checked){$('qrBox')
 const _r=render;window.render=render=function(){_r();for(const id of ['btnShare','btnQR'])if($(id))$(id).disabled=!$('consent').checked;};render();
 window.JC_SHARE={shortText};
 if(/demo/.test(location.hash)||/[?&]demo=1/.test(location.search))setTimeout(start,600);
+})();
+
+</script>
+<script>
+/* ===== Bantuan istilah ===== */
+(function(){
+const G=[
+['umum','kpr','KPR','Kredit Pemilikan Rumah','Pinjaman dari bank untuk membeli rumah. Rumahnya dibayar bank lebih dulu, lalu Anda mencicil ke bank setiap bulan dalam jangka waktu tertentu.',''],
+['umum','mbr','MBR','Masyarakat Berpenghasilan Rendah','Sebutan resmi pemerintah untuk warga yang boleh memakai rumah bersubsidi. Batas penghasilannya berbeda menurut wilayah dan status menikah.','Aplikasi memeriksa batas ini dari daerah dan status pernikahan yang Anda pilih.'],
+['program','flpp','FLPP','Fasilitas Likuiditas Pembiayaan Perumahan','KPR rumah subsidi dari pemerintah, dikelola BP Tapera dan disalurkan lewat bank. Bunganya tetap 5% per tahun sampai lunas, khusus untuk rumah pertama dan pembeli yang memenuhi batas penghasilan.','Aplikasi memakai bunga 5% tetap untuk menghitung cicilan FLPP.'],
+['program','sbum','SBUM','Subsidi Bantuan Uang Muka','Bantuan pemerintah untuk menambah uang muka rumah subsidi. Besarnya berbeda menurut wilayah.','Status kemampuan bayar dihitung tanpa SBUM karena bantuan ini belum tentu cair. Hitungan “jika SBUM cair” ditampilkan terpisah sebagai pembanding.'],
+['program','kpp','KPP','Kredit Program Perumahan','Pinjaman bersubsidi untuk membeli atau membangun rumah yang juga dipakai untuk usaha. Peminjam membayar bunga 6% selama lima tahun pertama, sisanya ditanggung pemerintah. Syaratnya antara lain punya NPWP dan NIB, usaha sudah berjalan sedikitnya enam bulan, dan tidak sedang menerima KUR.','Aplikasi menghitung KPP dalam dua masa: 6% selama 5 tahun, lalu perkiraan bunga setelah subsidi.'],
+['program','tapera','BP Tapera','Badan Pengelola Tabungan Perumahan Rakyat','Lembaga pemerintah yang mengelola dana FLPP dan menetapkan aturan teknisnya.',''],
+['program','kur','KUR','Kredit Usaha Rakyat','Pinjaman usaha bersubsidi dari pemerintah. Orang yang sedang menerima KUR tidak boleh sekaligus memakai KPP.',''],
+['program','zona','Wilayah harga','Zona batas harga rumah subsidi','Pemerintah menetapkan harga paling tinggi rumah subsidi yang berbeda di tiap wilayah, misalnya Jawa, Kalimantan, atau Papua. Rumah yang lebih mahal dari batas ini tidak bisa memakai FLPP.','Aplikasi memuat batas harga dan penghasilan untuk 11 kelompok wilayah di seluruh Indonesia.'],
+['program','kprbiasa','KPR biasa','KPR tanpa subsidi','KPR dengan bunga yang ditentukan bank sendiri, tanpa bantuan pemerintah. Bunganya biasanya lebih tinggi dan bisa berubah.','Angka 9% di aplikasi hanya contoh untuk membandingkan. Tidak memengaruhi hasil.'],
+['cicilan','cicilan','Cicilan atau angsuran','','Uang yang dibayar ke bank setiap bulan sampai pinjaman lunas. Isinya gabungan pokok pinjaman dan bunga.',''],
+['cicilan','anuitas','Anuitas','Cicilan tetap','Cara menghitung cicilan sehingga jumlah yang dibayar sama setiap bulan selama bunganya tidak berubah.','Semua perkiraan cicilan di aplikasi memakai cara ini. Jadwal bank bisa sedikit berbeda.'],
+['cicilan','tenor','Lama cicilan','Tenor','Berapa tahun pinjaman harus dilunasi. Makin lama, cicilan per bulan makin kecil, tetapi total bunga yang dibayar makin besar.','Untuk FLPP, usia saat lunas tidak boleh lebih dari 65 tahun.'],
+['cicilan','dp','Uang muka','DP (down payment)','Bagian harga rumah yang dibayar sendiri di awal. Sisanya menjadi pinjaman.','Untuk FLPP, uang muka bisa mulai 1%.'],
+['cicilan','danasendiri','Dana sendiri untuk KPP','','Bagian harga rumah yang Anda bayar sendiri saat memakai KPP. Belum ada sumber resmi tentang batas minimalnya, jadi tanyakan ke bank.','Bawaan aplikasi 0%, sehingga cicilan terhitung paling tinggi.'],
+['cicilan','plafon','Plafon','Batas pinjaman','Jumlah pinjaman paling besar yang boleh diberikan. Untuk KPP sisi permintaan, plafonnya di atas Rp10 juta sampai Rp500 juta.',''],
+['cicilan','bunga2','Bunga setelah masa subsidi','KPP tahun ke-6 dan seterusnya','Setelah lima tahun, subsidi bunga KPP berhenti dan bunga ditentukan bank. Besarnya belum diketahui pasti.','Aplikasi memperkirakannya dari bunga 6% ditambah besar subsidi: 16% untuk pinjaman sampai Rp100 juta, 11,5% untuk di atasnya. Ini perkiraan, bukan ketentuan resmi.'],
+['cicilan','akad','Akad kredit','','Penandatanganan perjanjian pinjaman dengan bank. Setelah akad, cicilan mulai berjalan.',''],
+['cicilan','biayabeli','Biaya pembelian lain','','Biaya di luar uang muka saat membeli rumah, misalnya biaya akad, notaris, atau asuransi. Besarnya tanyakan ke bank atau pengembang.','Biaya ini dikurangkan dari tabungan sebelum menghitung cadangan.'],
+['keuangan','dsr','Batas cicilan dibanding pemasukan','DSR (debt service ratio)','Perbandingan cicilan dengan pemasukan rata-rata per bulan. Misalnya pemasukan Rp3 juta dan cicilan Rp900 ribu berarti 30%.','Bawaan aplikasi 30%. Anda bisa mengubahnya.'],
+['keuangan','paceklik','Bulan pemasukan terendah','Bulan sepi atau paceklik','Kondisi paling berat dari catatan enam bulan Anda: pemasukan terendah bertemu pengeluaran tertinggi.','Inilah yang membedakan aplikasi ini dari kalkulator KPR biasa yang hanya memakai rata-rata.'],
+['keuangan','guncangan','Jika pemasukan turun','Guncangan pemasukan','Uji jika pemasukan rata-rata turun sekian persen, misalnya karena sakit, cuaca, atau pasar sepi.','Bawaan aplikasi 20%.'],
+['keuangan','sisa','Sisa uang per bulan','','Pemasukan dikurangi pengeluaran rumah tangga, biaya rumah baru, dan cicilan. Sewa lama yang tidak dibayar lagi ditambahkan kembali. Jika minus, berarti uang tidak cukup bulan itu.',''],
+['keuangan','sewa','Biaya sewa lama','','Sewa rumah atau kos yang sekarang Anda bayar dan akan berhenti setelah pindah ke rumah sendiri. Uang ini bisa dipakai untuk cicilan.',''],
+['keuangan','biayarumah','Biaya rumah baru dan perawatan','','Pengeluaran tambahan setelah punya rumah, misalnya listrik, air, iuran lingkungan, dan tabungan untuk perbaikan.',''],
+['keuangan','cadangan','Cadangan tabungan','Lama tabungan menutup kekurangan','Tabungan setelah dikurangi uang muka dan biaya pembelian. Jika ada bulan yang minus, aplikasi menghitung berapa bulan cadangan ini sanggup menutupnya.',''],
+['hasil','aman','Status Aman','','Tabungan cukup untuk uang muka dan biaya pembelian, bulan biasa tidak minus, cicilan tidak melebihi batas yang dipilih, dan cadangan sanggup menutup kekurangan di kondisi terburuk sedikitnya 6 bulan.','Aman bukan berarti pasti disetujui bank.'],
+['hasil','waspada','Status Waspada','','Masih mungkin, tetapi tipis: bulan biasa tidak minus dan tabungan cukup untuk biaya awal, namun cicilan sampai 1,5 kali batas atau cadangan hanya cukup 3 sampai 6 bulan.',''],
+['hasil','berisiko','Status Berisiko','','Ada salah satu masalah berat: bulan biasa sudah minus, tabungan tidak cukup untuk biaya awal, cicilan terlalu besar, atau cadangan habis kurang dari 3 bulan.','Perbaiki dulu bagian yang ditandai sebelum datang ke bank.'],
+['hasil','syaratawal','Syarat awal','Syarat administratif','Syarat yang bisa dicek dari data, misalnya usia, batas penghasilan, batas harga, dan status rumah pertama. Lolos syarat awal belum berarti sanggup membayar.',''],
+['hasil','skordok','Skor kesiapan dokumen','','Nilai 0 sampai 100 dari kelengkapan bukti transaksi, kebiasaan menabung, dan dokumen dasar, masing-masing paling tinggi 25.','Paling tinggi 75 sampai bukti diperiksa pendamping, karena aplikasi hanya menerima jawaban Anda.'],
+['hasil','slik','SLIK','Sistem Layanan Informasi Keuangan OJK','Catatan riwayat pinjaman seseorang yang diperiksa bank, misalnya pernah menunggak atau tidak.','Aplikasi tidak memeriksa SLIK. Bagian ini selalu dinilai oleh bank.'],
+['dokumen','npwp','NPWP','Nomor Pokok Wajib Pajak','Nomor identitas pembayar pajak. Wajib untuk KPP.',''],
+['dokumen','nib','NIB','Nomor Induk Berusaha','Nomor izin usaha yang didaftarkan lewat sistem OSS. Wajib untuk KPP.',''],
+['dokumen','bukti','Bukti transaksi','','Catatan yang menunjukkan uang benar-benar masuk dan keluar, misalnya mutasi rekening, catatan dompet digital, atau buku kas usaha.','Bulan yang hanya berupa pengakuan tanpa bukti dihitung lebih rendah.'],
+['dokumen','pdp','Persetujuan data','UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi','Aturan yang mewajibkan persetujuan sebelum data pribadi dibagikan.','Aplikasi tidak mengirim data ke mana pun. Ringkasan baru bisa diunduh atau dibagikan setelah Anda mencentang persetujuan.']
+];
+const GROUPS=[['semua','Semua'],['program','Program'],['cicilan','Cicilan'],['keuangan','Keuangan'],['hasil','Hasil'],['dokumen','Dokumen'],['umum','Umum']];
+const dlg=document.getElementById('glossary');let group='semua';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function list(){const q=$('glSearch').value.trim().toLowerCase();
+ const rows=G.filter(g=>(group==='semua'||g[0]===group)&&(!q||(g[2]+' '+g[3]+' '+g[4]+' '+g[5]).toLowerCase().includes(q)));
+ $('glBody').innerHTML=rows.length?rows.map(g=>`<article class="gl-item" id="gl-${g[1]}"><h3>${esc(g[2])}${g[3]?` <small>${esc(g[3])}</small>`:''}</h3><p>${esc(g[4])}</p>${g[5]?`<p class="gl-app"><b>Di aplikasi ini:</b> ${esc(g[5])}</p>`:''}</article>`).join(''):'<p class="gl-empty">Istilah tidak ditemukan. Coba kata lain, misalnya “cicilan” atau “uang muka”.</p>';}
+function chips(){$('glChips').innerHTML=GROUPS.map(([k,l])=>`<button type="button" data-g="${k}" aria-pressed="${k===group}">${l}</button>`).join('');
+ $('glChips').querySelectorAll('button').forEach(b=>b.onclick=()=>{group=b.dataset.g;chips();list();});}
+function open(id){group='semua';$('glSearch').value='';chips();list();
+ if(dlg.showModal){if(!dlg.open)dlg.showModal();}else dlg.setAttribute('open','');
+ if(id){const el=document.getElementById('gl-'+id);if(el){el.scrollIntoView({block:'start'});el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');}}
+ else $('glSearch').focus();}
+function close(){if(dlg.close)dlg.close();else dlg.removeAttribute('open');}
+$('glSearch').addEventListener('input',list);$('glClose').onclick=close;
+dlg.addEventListener('click',e=>{if(e.target===dlg)close();});
+$('btnHelp').onclick=()=>open();
+/* tombol ? di samping label */
+const MAP={region:'zona',flppTerm:'tenor',kppTerm:'tenor',flppDp:'dp',kppDp:'danasendiri',kppRate2:'bunga2',altRate:'kprbiasa',oldRent:'sewa',newCosts:'biayarumah',maintenance:'biayarumah',closingCosts:'biayabeli',shock:'guncangan',dsr:'dsr',savings:'cadangan'};
+const titleOf=id=>(G.find(g=>g[1]===id)||[])[2]||'';
+for(const [f,t] of Object.entries(MAP)){const l=document.querySelector(`label[for="${f}"]`);if(!l)continue;
+ const b=document.createElement('button');b.type='button';b.className='qhelp';b.textContent='?';b.dataset.term=t;b.setAttribute('aria-label','Penjelasan: '+titleOf(t));b.onclick=e=>{e.preventDefault();e.stopPropagation();open(t);};l.appendChild(b);}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-glossary]');if(b){e.preventDefault();open(b.dataset.glossary);}});
+window.JC_HELP={open,close,G};
 })();
 
 </script>

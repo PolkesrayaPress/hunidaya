@@ -1,4 +1,4 @@
-# HUNIDAYA v1.3.2 (PWA)
+# HUNIDAYA v1.4 (PWA)
 
 *Pahami kemampuanmu, rencanakan rumahmu.*
 
@@ -33,13 +33,14 @@ Setelah dibuka sekali dengan internet, aplikasi tetap bisa dipakai tanpa interne
 
 Versi 1.3.1 mengganti nama dari JEJAK CICIL menjadi HUNIDAYA. Versi 1.3.2 mengganti kunci penyimpanan hasil uji pengguna menjadi `hunidaya.uji.v1`; sesi lama dipindahkan otomatis saat aplikasi pertama kali dibuka, lalu kunci lama dihapus.
 
-- **Putar demo:** menjalankan contoh Bu Rina melewati 5 langkah dalam sekitar 77 detik. Tombol Jeda, Kembali, Lanjut, dan Selesai tersedia; tombol Esc menghentikan demo. Alamat yang diakhiri `#demo` langsung memutar demo, berguna untuk merekam video.
+- **Putar demo:** menjalankan contoh Bu Rina melewati 5 langkah dalam 12 adegan, sekitar 84 detik. Tombol Jeda, Kembali, Lanjut, dan Selesai tersedia; tombol Esc menghentikan demo. Alamat yang diakhiri `#demo` langsung memutar demo, berguna untuk merekam video.
+- **Bantuan istilah (v1.4):** tombol "Bantuan istilah" membuka kamus 35 istilah (FLPP, SBUM, KPP, DSR, plafon, SLIK, dan lainnya) dalam bahasa sehari-hari, bisa dicari dan dikelompokkan. Tanda tanya kecil di samping isian langsung membuka penjelasan istilah itu.
 - **Uji pengguna:** 5 pertanyaan sebelum dan sesudah memakai aplikasi (skala 1 sampai 5), ditambah satu pertanyaan kemudahan dan dua isian singkat. Hasil disimpan di perangkat dengan kode peserta tanpa nama, lalu bisa diunduh sebagai `.csv` atau `.json`.
 - **Bagikan ringkasan:** teks ringkasan tanpa nama lewat menu bagikan ponsel atau salin, serta kode QR yang bisa dipindai pendamping. Keduanya baru aktif setelah pengguna mencentang persetujuan.
 
 ## Memperbarui aplikasi
 
-Jika `index.html` diubah, naikkan juga nama cache di baris kedua `sw.js` (misalnya `hunidaya-v1.4`). Tanpa itu, ponsel yang sudah memasang aplikasi bisa tetap memakai versi lama.
+Jika `index.html` diubah, naikkan juga nama cache di baris kedua `sw.js` (misalnya `hunidaya-v1.5`). Tanpa itu, ponsel yang sudah memasang aplikasi bisa tetap memakai versi lama.
 
 ## Lisensi pihak ketiga
 
