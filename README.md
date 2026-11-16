@@ -1,4 +1,4 @@
-# HUNIDAYA v1.6 (PWA)
+# HUNIDAYA v1.6.1 (PWA)
 
 *Pahami kemampuanmu, rencanakan rumahmu.*
 
@@ -43,6 +43,7 @@ Versi 1.3.1 mengganti nama dari JEJAK CICIL menjadi HUNIDAYA. Versi 1.3.2 mengga
 - **Bacakan hasil (v1.5):** tombol "Bacakan" membacakan ringkasan dengan suara bahasa Indonesia di perangkat. Bila perangkat belum punya suara Indonesia, aplikasi memberi tahu cara memasangnya.
 - **Mode pendamping (v1.5):** untuk kader, koperasi, atau petugas. Menyimpan banyak profil anggota dengan kode (tanpa nama) di perangkat pendamping, setelah anggota setuju. Tersedia tabel ringkas, rekap `.csv`, ekspor `.json`, dan hapus semua.
 - **Uji pengguna:** 5 pertanyaan sebelum dan sesudah memakai aplikasi (skala 1 sampai 5), ditambah satu pertanyaan kemudahan dan dua isian singkat. Hasil disimpan di perangkat dengan kode peserta tanpa nama, lalu bisa diunduh sebagai `.csv` atau `.json`.
+- **Bilah panduan uji (v1.6.1):** selama sesi uji, bilah gelap di bawah layar menunjukkan "langkah X dari 5" dengan tombol "Lanjut ke langkah berikutnya". Di Langkah 5 tombolnya menjadi "Isi jawaban akhir". Tombol contoh, demo, mode pendamping, dan cetak disembunyikan selama sesi agar peserta memakai datanya sendiri. Label "Uji berjalan" di atas bisa diketuk untuk kembali ke kuesioner. Kartu "Mulai sesi uji baru" kini memuat urutan empat tahap untuk pendamping.
 - **Bagikan ringkasan:** teks ringkasan tanpa nama lewat menu bagikan ponsel atau salin, serta kode QR yang bisa dipindai pendamping. Keduanya baru aktif setelah pengguna mencentang persetujuan.
 
 ## Memperbarui aplikasi
