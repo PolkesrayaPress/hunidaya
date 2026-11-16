@@ -1,4 +1,4 @@
-# HUNIDAYA v1.6.1 (PWA)
+# HUNIDAYA v1.6.2 (PWA)
 
 *Pahami kemampuanmu, rencanakan rumahmu.*
 
@@ -44,6 +44,7 @@ Versi 1.3.1 mengganti nama dari JEJAK CICIL menjadi HUNIDAYA. Versi 1.3.2 mengga
 - **Mode pendamping (v1.5):** untuk kader, koperasi, atau petugas. Menyimpan banyak profil anggota dengan kode (tanpa nama) di perangkat pendamping, setelah anggota setuju. Tersedia tabel ringkas, rekap `.csv`, ekspor `.json`, dan hapus semua.
 - **Uji pengguna:** 5 pertanyaan sebelum dan sesudah memakai aplikasi (skala 1 sampai 5), ditambah satu pertanyaan kemudahan dan dua isian singkat. Hasil disimpan di perangkat dengan kode peserta tanpa nama, lalu bisa diunduh sebagai `.csv` atau `.json`.
 - **Bilah panduan uji (v1.6.1):** selama sesi uji, bilah gelap di bawah layar menunjukkan "langkah X dari 5" dengan tombol "Lanjut ke langkah berikutnya". Di Langkah 5 tombolnya menjadi "Isi jawaban akhir". Tombol contoh, demo, mode pendamping, dan cetak disembunyikan selama sesi agar peserta memakai datanya sendiri. Label "Uji berjalan" di atas bisa diketuk untuk kembali ke kuesioner. Kartu "Mulai sesi uji baru" kini memuat urutan empat tahap untuk pendamping. Di Langkah 5 ada juga tombol cadangan "Isi jawaban akhir" di atas hasil. File ekspor uji kini mencatat `"versi": "1.6.1"` agar sesi dari versi lama bisa dibedakan.
+- **Pertanyaan sewa di Langkah 1 (v1.6.2):** "Sekarang tinggal di rumah kontrakan atau kos?" kini ditanyakan di profil, dengan isian besar sewa yang langsung terhubung ke perhitungan. Bila belum dijawab, Langkah 3 dan 5 menampilkan peringatan bahwa hasil bisa terlalu berat. Temuan uji: dua peserta yang mengontrak mengisi sewa lama Rp0 karena kolomnya tersembunyi di pengaturan Langkah 3. Semua file ekspor kini mencatat versi 1.6.2.
 - **Ringkasan lebih lengkap (v1.6.1):** teks ringkasan dan file rapor kini memuat sisa uang di bulan pemasukan terendah dan saat pemasukan turun, bukan hanya bulan biasa.
 - **Bagikan ringkasan:** teks ringkasan tanpa nama lewat menu bagikan ponsel atau salin, serta kode QR yang bisa dipindai pendamping. Keduanya baru aktif setelah pengguna mencentang persetujuan.
 

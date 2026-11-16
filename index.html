@@ -346,6 +346,9 @@ tbody tr:hover{background:#F5FAFD}
 @media(max-width:540px){.kpi .num{font-size:22px;white-space:nowrap;letter-spacing:-.3px}}
 
 
+.rent-warn{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;border:1px solid #F2B8A8;border-left:6px solid #FF4C2B;background:#FFF5F2;border-radius:10px;padding:14px 18px;margin:0 0 18px}
+.rent-warn p{font-size:15px;line-height:1.5;color:#3A1A10;flex:1;min-width:220px}
+.rent-warn .btn{min-height:44px}
 .tb-guide{margin:4px 0 16px;padding-left:22px;display:grid;gap:8px;font-size:15px;line-height:1.5;color:var(--ink,#080F1B)}
 .testbadge.on{cursor:pointer}
 #testBar{display:none}
@@ -384,7 +387,7 @@ body.testing #preset,body.testing #btnDemo,body.testing #btnPreset,body.testing 
   </div>
   <div class="side-spacer"></div>
   <div class="sidenote"><strong>Data Anda tetap pribadi</strong><p>Semua perhitungan dilakukan langsung di perangkat Anda. Data tidak dikirim ke bank atau server. Hanya Anda yang dapat memilih untuk mengunduh hasilnya.</p></div>
-  <div class="sidestamp">Prototipe independen v1.6.1, 2026</div>
+  <div class="sidestamp">Prototipe independen v1.6.2, 2026</div>
 </aside>
 <main class="content">
   <div class="topline"><div class="breadcrumb">HUNIDAYA <span> / </span><strong id="breadcrumb">Profil dan rumah</strong><span class="stepcount" id="stepCount">Langkah 1 dari 5</span><span class="testbadge" id="testBadge" aria-live="polite"></span></div><div class="top-actions"><select id="preset" class="btn" aria-label="Pilih contoh simulasi"><option value="rina">Contoh: Bu Rina</option><option value="stabil">Contoh: Pemasukan stabil</option><option value="musiman">Contoh: Pemasukan tidak tetap</option></select><button type="button" class="btn btn-primary" id="btnDemo"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>Putar demo</button><button type="button" class="btn" id="btnPreset">Tampilkan contoh</button><button type="button" class="btn" id="btnClear">Mulai isi data sendiri</button><button type="button" class="btn" id="btnHelp" aria-haspopup="dialog">Bantuan istilah</button><button type="button" class="btn" id="btnTest">Uji pengguna</button><button type="button" class="btn" id="btnMentor">Mode pendamping</button><button type="button" class="btn btn-dark" id="btnPrint">Cetak hasil</button></div></div>
@@ -403,7 +406,7 @@ body.testing #preset,body.testing #btnDemo,body.testing #btnPreset,body.testing 
         <div class="field"><label for="married">Status pernikahan</label><select id="married"><option value="no">Belum menikah</option><option value="yes" selected>Menikah</option></select></div>
         <div class="field full"><label for="region">Daerah rumah yang ingin dibeli</label><select id="region"></select><div class="hint" id="regionHint"></div></div>
         <div class="field"><label for="price">Perkiraan harga rumah (Rp)</label><input id="price" type="number" value="182000000" min="1"></div>
-        <div class="field"><label for="savings">Tabungan yang bisa digunakan (Rp)</label><input id="savings" type="number" value="3200000" min="0"><div class="hint">Isi jumlah tabungan yang benar-benar tersedia saat ini, bukan total tabungan yang pernah disetor.</div></div>
+        <div class="field"><label for="savings">Tabungan yang bisa digunakan (Rp)</label><input id="savings" type="number" value="3200000" min="0"><div class="hint">Isi jumlah tabungan yang benar-benar tersedia saat ini, bukan total tabungan yang pernah disetor.</div></div><div class="field"><label for="rentNow">Sekarang tinggal di rumah kontrakan atau kos?</label><select id="rentNow" class="nc"><option value="">Pilih jawaban</option><option value="ya">Ya, saya membayar sewa</option><option value="tidak">Tidak (rumah sendiri, keluarga, atau dinas)</option></select><div class="hint">Sewa yang berhenti setelah pindah menambah sisa uang Anda. Tanpa jawaban ini, hasil bisa terlalu berat.</div></div><div class="field" id="rentAmtF" hidden><label for="rentAmt">Sewa per bulan yang akan berhenti (Rp)</label><input id="rentAmt" class="nc" type="number" min="0" value="0" inputmode="numeric"><div class="hint">Pastikan sewa ini juga ikut dicatat sebagai pengeluaran di Langkah 2.</div></div>
       </div></div>
       <div class="card"><div class="card-title"><div><h3>Periksa syarat dan dokumen awal</h3><p>Centang sesuai keadaan sebenarnya. Jawaban ini belum diperiksa oleh bank.</p></div><span class="mini-icon">☑</span></div>
         <div class="checks"><label class="check"><input type="checkbox" id="firstHome" checked><span>Saya dan pasangan (jika ada) belum memiliki rumah.</span></label><label class="check"><input type="checkbox" id="noSubsidy" checked><span>Saya belum pernah mendapat bantuan pemerintah untuk memiliki rumah.</span></label></div>
@@ -622,7 +625,7 @@ function reportText(d,m){return ['HUNIDAYA | RINGKASAN HASIL (SIMULASI)','Jenis 
 let dlApi=null;if(window.claude&&typeof window.claude.use==='function')window.claude.use('downloads').then(x=>{dlApi=x}).catch(()=>{});
 async function download(name,content,mime){if(dlApi){try{await dlApi.save({filename:name,data:content});}catch(e){notify('Unduhan dibatalkan atau tidak tersedia.');}return;}const blob=new Blob([content],{type:mime});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),300);}
 function notify(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3500);}
-function bind(){document.querySelectorAll('#mainNav button').forEach(b=>b.onclick=()=>navigate(b.dataset.step));document.querySelectorAll('[data-to]').forEach(b=>b.onclick=()=>navigate(b.dataset.to));$('btnPreset').onclick=()=>applyPreset($('preset').value);$('btnFillSample').onclick=()=>applyPreset($('preset').value);$('btnClear').onclick=blankForm;$('btnPrint').onclick=()=>{navigate('report');if($('consent').checked)window.print();else notify('Centang persetujuan di bagian ringkasan sebelum mencetak.')};$('btnReportPrint').onclick=()=>{if($('consent').checked)window.print()};$('btnDownloadText').onclick=()=>{if(!$('consent').checked)return;const {d,m}=lastModel;download('Rapor_HUNIDAYA.txt',reportText(d,m),'text/plain;charset=utf-8')};$('btnExportJSON').onclick=()=>{if(!$('consent').checked)return;const {d}=lastModel;download('Data_HUNIDAYA.json',JSON.stringify({application:'HUNIDAYA',version:'1.6',dataOrigin:sourceKind,exportedAt:new Date().toISOString(),data:d},null,2),'application/json;charset=utf-8')};
+function bind(){document.querySelectorAll('#mainNav button').forEach(b=>b.onclick=()=>navigate(b.dataset.step));document.querySelectorAll('[data-to]').forEach(b=>b.onclick=()=>navigate(b.dataset.to));$('btnPreset').onclick=()=>applyPreset($('preset').value);$('btnFillSample').onclick=()=>applyPreset($('preset').value);$('btnClear').onclick=blankForm;$('btnPrint').onclick=()=>{navigate('report');if($('consent').checked)window.print();else notify('Centang persetujuan di bagian ringkasan sebelum mencetak.')};$('btnReportPrint').onclick=()=>{if($('consent').checked)window.print()};$('btnDownloadText').onclick=()=>{if(!$('consent').checked)return;const {d,m}=lastModel;download('Rapor_HUNIDAYA.txt',reportText(d,m),'text/plain;charset=utf-8')};$('btnExportJSON').onclick=()=>{if(!$('consent').checked)return;const {d}=lastModel;download('Data_HUNIDAYA.json',JSON.stringify({application:'HUNIDAYA',version:'1.6.2',dataOrigin:sourceKind,exportedAt:new Date().toISOString(),data:d},null,2),'application/json;charset=utf-8')};
  document.querySelectorAll('input:not(.nc),select:not(.nc)').forEach(el=>{if(el.id!=='preset')el.addEventListener('input',e=>{if(e.isTrusted&&sourceKind==='simulasi')sourceKind='campuran';render()});});
  document.querySelectorAll('input:not(.nc),select:not(.nc)').forEach(el=>{if(el.id!=='preset')el.addEventListener('change',()=>render())});
 }
@@ -3018,7 +3021,7 @@ function wire(){const g=id=>document.getElementById(id);
  if(g('tClear'))g('tClear').onclick=()=>{const b=g('tClear');if(b.dataset.arm){mem.records=[];save();renderTest();notify('Semua hasil uji dihapus.');}else{b.dataset.arm='1';b.textContent='Klik lagi untuk menghapus';setTimeout(()=>{if(b.isConnected){delete b.dataset.arm;b.textContent='Hapus semua hasil';}},4000);}};
  const csv=()=>{const esc=s=>'"'+String(s).replace(/"/g,'""')+'"';const head=['kode','tanggal',...QS.map((_,i)=>'sebelum_q'+(i+1)),...QS.map((_,i)=>'sesudah_q'+(i+1)),'mudah_dipahami','membantu','membingungkan','data_yang_dipakai'];return [head.join(','),...mem.records.map(r=>[r.kode,r.tanggal,...r.pre,...r.post,r.easy,esc(r.membantu),esc(r.membingungkan),r.dataYangDipakai].join(','))].join('\n');};
  if(g('tCSV'))g('tCSV').onclick=()=>download('Uji_HUNIDAYA.csv',csv(),'text/csv;charset=utf-8');
- if(g('tJSON'))g('tJSON').onclick=()=>download('Uji_HUNIDAYA.json',JSON.stringify({aplikasi:'HUNIDAYA',versi:'1.6.1',pertanyaan:QS,skala:SCALE,diekspor:new Date().toISOString(),sesi:mem.records},null,2),'application/json;charset=utf-8');}
+ if(g('tJSON'))g('tJSON').onclick=()=>download('Uji_HUNIDAYA.json',JSON.stringify({aplikasi:'HUNIDAYA',versi:'1.6.2',pertanyaan:QS,skala:SCALE,diekspor:new Date().toISOString(),sesi:mem.records},null,2),'application/json;charset=utf-8');}
 $('btnTest').onclick=()=>navigate('test');
 const _nav=navigate;window.navigate=navigate=function(step){_nav(step);if(step==='test')renderTest();};
 document.querySelectorAll('#mainNav button,[data-to]').forEach(b=>{const s=b.dataset.step||b.dataset.to;b.onclick=()=>navigate(s);});
@@ -3302,6 +3305,28 @@ const b=document.getElementById('testBadge');if(b){b.setAttribute('role','button
 const root=document.getElementById('testRoot');if(root&&window.MutationObserver)new MutationObserver(upd).observe(root,{childList:true});
 document.querySelectorAll('#mainNav button,[data-to]').forEach(x=>{const s=x.dataset.step||x.dataset.to;if(s)x.onclick=()=>navigate(s);});
 upd();window.JC_TESTBAR={upd};
+})();
+</script>
+<script>
+/* ===== v1.6.2: pertanyaan sewa di Langkah 1 dan peringatan bila belum dijawab ===== */
+(function(){
+const q=$('rentNow'),amtF=$('rentAmtF'),amt=$('rentAmt'),old=$('oldRent');if(!q||!amt||!old)return;
+function push(v){old.value=v;if(sourceKind==='simulasi')sourceKind='campuran';old.dispatchEvent(new Event('input',{bubbles:true}));warn();}
+function fromOld(){const v=+old.value||0;amt.value=v;if(v>0){q.value='ya';amtF.hidden=false;}warn();}
+q.addEventListener('change',()=>{if(q.value==='ya'){amtF.hidden=false;amt.focus();if(+amt.value>0)push(+amt.value);}else{amtF.hidden=true;if(q.value==='tidak')push(0);}warn();});
+amt.addEventListener('input',()=>push(Math.max(0,+amt.value||0)));
+old.addEventListener('input',e=>{if(e.isTrusted)fromOld();});
+function warn(){['section-simulator','section-report'].forEach(id=>{const sec=$(id);if(!sec)return;let w=sec.querySelector('.rent-warn');
+ const need=q.value===''&&!(+old.value>0)||(q.value==='ya'&&!(+old.value>0));
+ if(!need){if(w)w.remove();return;}
+ if(!w){w=document.createElement('div');w.className='rent-warn';w.setAttribute('role','note');sec.prepend(w);}
+ w.innerHTML='<p><b>'+(q.value==='ya'?'Besar sewa belum diisi.':'Belum dijawab: apakah Anda sekarang mengontrak atau kos?')+'</b> Jika ya, hasil di bawah terlalu berat karena sewa dan cicilan terhitung bersamaan.</p><button type="button" class="btn">Jawab di Langkah 1</button>';
+ w.querySelector('button').onclick=()=>{navigate('profile');setTimeout(()=>{(q.value==='ya'?amt:q).focus();},250);};});}
+const _b=blankForm;window.blankForm=blankForm=function(){_b.apply(this,arguments);q.value='';amt.value=0;amtF.hidden=true;warn();};
+const _p=applyPreset;window.applyPreset=applyPreset=function(){const r=_p.apply(this,arguments);if(+old.value>0)fromOld();else{q.value='tidak';amtF.hidden=true;warn();}return r;};
+const _n=navigate;window.navigate=navigate=function(s){_n(s);warn();};
+fromOld();if(!(+old.value>0)&&sourceKind==='simulasi'){q.value='tidak';}warn();
+window.JC_RENT={warn,fromOld};
 })();
 </script>
 <script>if('serviceWorker' in navigator&&location.protocol!=='file:'){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}</script>
